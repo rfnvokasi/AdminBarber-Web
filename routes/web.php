@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/Adminbarber', 'AdminBarberController@index2' );
+Route::post('/Adminbarber/create', 'AdminBarberController@create');
+Route::get('/Adminbarber/{id}/delete', 'AdminBarberController@delete');
+Route::get('/Booking', 'AdminBarberController@index');
