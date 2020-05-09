@@ -37,13 +37,12 @@
                       <td><?php echo e($booking->jam); ?></td>
                       <td><?php echo e($booking->layanan); ?></td>
                       <td>
-                          <a href="/Adminbarber/<?php echo e($booking->id); ?>/delete" class="btn btn-danger" onclick="return confirm('Yakin Mau di Hapus?')">Delete</a>
+                          <a href="/Adminbarber/<?php echo e($booking->id); ?>/delete" class="btn btn-danger" onclick="return confirm('Are you sure want to delete this??')">Delete</a>
                       </td>
                   </tr>    
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                    </tbody>
                 </table>
-              </div>
             </div>
           </div>
         </div>
@@ -73,9 +72,8 @@
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Jam</label>
-                    <input name="jam" placeholder="Jam" class="timepicker form-control" type="text">
+                    <input placeholder="Jam" name="jam" id="demo-input" class="form-control" />
                   </div>
-
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Pilih Layanan</label>
                     <select name="layanan" class="form-control" id="exampleFormControlSelect1">
@@ -92,6 +90,8 @@
         </div>
       </div>
     </div>
+
+    
     <?php $__env->stopSection(); ?>
 
 

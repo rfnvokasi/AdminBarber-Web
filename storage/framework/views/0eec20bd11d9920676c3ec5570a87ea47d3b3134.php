@@ -39,114 +39,24 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>  
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/cp/bootstrap-clockpicker.min.css')); ?>">
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="green">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <a href="/Adminbarber" class="simple-text logo-mini">
-          CT
-        </a>
-        <a href="/Adminbarber" class="simple-text logo-normal">
-          Cukuran
-        </a>
-      </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-          <li class="active ">
-            <a href="/Adminbarber">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="/Booking">
-            <i class="now-ui-icons tech_watch-time"></i>
-              <p>Booking</p>
-            </a>
-          </li>
-         
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel" id="main-panel">
+
+      <!-- SIDEBAR -->
+      <?php echo $__env->make('layouts.includes._sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <!-- End SIDEBAR-->
+
+        <div class="main-panel" id="main-panel">
+      
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="/Adminbarber">Menu</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <?php echo $__env->make('layouts.includes._navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       <!-- End Navbar -->
-        
+      
+      <!--Content-->
       <?php echo $__env->yieldContent('content'); ?>
 
               </div>
@@ -156,37 +66,17 @@
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div class=" container-fluid ">
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="http://presentation.creative-tim.com">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-        </ul>
-      </nav>
 
-          <div class="copyright" id="copyright">
-            &copy; <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-        </div>
-      </footer>
+    <!--End Content -->
+
+    <!--Footer-->
+    <?php echo $__env->make('layouts.includes._footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <!--EndFooter-->
+
     </div>
   </div>
+
+  
 
   <script type="text/javascript">
     $('.date').datepicker({  
@@ -197,6 +87,25 @@
     $('.timepicker').datetimepicker({
         format: 'HH:mm'
     }); 
+</script>
+
+<script type="text/javascript" src="<?php echo e(asset('admin/cp/bootstrap-clockpicker.min.js')); ?>"></script>
+
+<script type="text/javascript">
+$('.clockpicker').clockpicker()
+	.find('input').change(function(){
+		// TODO: time changed
+		console.log(this.value);
+	});
+$('#demo-input').clockpicker({
+	autoclose: true
+});
+
+if (something) {
+	// Manual operations (after clockpicker is initialized).
+	$('#demo-input').clockpicker('show') // Or hide, remove ...
+			.clockpicker('toggleView', 'minutes');
+}
 </script>
   <!--   Core JS Files   -->
   <script src="<?php echo e(asset('admin/assets/js/core/jquery.min.js')); ?>"></script>
@@ -219,6 +128,9 @@
 
     });
   </script>
+
+  <script type="text/javascript" src="<?php echo e(asset('admin/cp/dist/bootstrap-clockpicker.min.js')); ?>"></script>
+ 
 </body>
 
 </html><?php /**PATH C:\xampp\htdocs\AdminBarber\resources\views/layouts/master.blade.php ENDPATH**/ ?>

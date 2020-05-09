@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/lar', function () {
     return view('welcome');
 });
 
-Route::get('/Adminbarber', 'AdminBarberController@index2' );
-Route::post('/Adminbarber/create', 'AdminBarberController@create');
-Route::get('/Adminbarber/{id}/delete', 'AdminBarberController@delete');
-Route::get('/Booking', 'AdminBarberController@index');
+Route::get('/loginadmin' , 'AuthController@login')->name('login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('/logout', 'AuthController@logout');
+
+Route::group(['middleware' => 'auth'],function(){
+    Route::get('/Adminbarber', 'AdminBarberController@index2');
+    Route::post('/Adminbarber/create', 'AdminBarberController@create');
+    Route::get('/Adminbarber/{id}/delete', 'AdminBarberController@delete');
+    Route::get('/Booking', 'AdminBarberController@index');
+});
