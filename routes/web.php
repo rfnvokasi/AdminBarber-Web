@@ -26,4 +26,6 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/Adminbarber/create', 'AdminBarberController@create');
     Route::get('/Adminbarber/{id}/delete', 'AdminBarberController@delete');
     Route::get('/Booking', 'AdminBarberController@index');
+    Route::get('/Transaksi', 'TransaksiController@index');
+    Route::get('/Transaksi/{id}/delete', 'TransaksiController@delete');
 });

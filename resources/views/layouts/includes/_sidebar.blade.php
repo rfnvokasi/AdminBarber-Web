@@ -24,6 +24,13 @@
           <p>Booking</p>
         </a>
       </li>
+
+      <li>
+        <a href="/Transaksi">
+          <i class="now-ui-icons education_paper"></i>
+          <p>Transaksi</p>
+        </a>
+      </li>
      
       <li class="active-pro">
         <a href="/logout">

@@ -14,7 +14,7 @@
               <h4 class="card-title">Menu Booking</h4>
             </div>
               <div class="col-lg-12">
-                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
+                <button type="button" class="btn btn-lg btn-success float-right" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
             </div>
             </div>
            
@@ -24,12 +24,13 @@
                   <thead class="text-primary">
                     <tr>
                       <th>NAMA</th>
-                      <th>TANGGAL</th>
+                      <th><?php echo \Kyslik\ColumnSortable\SortableLink::render(array ('tgl'));?></th>
                       <th>JAM</th>
                       <th>LAYANAN</th>
                       <th>AKSI</th>
                   </tr>
                   </thead>
+                  <?php if($data_booking->count()): ?>
                   <?php $__currentLoopData = $data_booking; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $booking): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <tr>
                       <td><?php echo e($booking->nama); ?></td>
@@ -41,8 +42,11 @@
                       </td>
                   </tr>    
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  <?php endif; ?>
                    </tbody>
                 </table>
+                <?php echo $data_booking->appends(\Request::except('page'))->render(); ?>
+
             </div>
           </div>
         </div>
@@ -84,8 +88,8 @@
                   </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-md btn-success">Tambah</button>
         </form>
         </div>
       </div>

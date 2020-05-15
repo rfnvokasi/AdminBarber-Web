@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Booking;
-class AdminBarberController extends Controller
+
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,8 @@ class AdminBarberController extends Controller
      */
     public function index()
     {
-        $data_booking = Booking::sortable()->paginate(5);
-        return view('Admin.index', ['data_booking' => $data_booking]);
-    }
-
-    public function index2()
-    {
-        return view('Dashboard.dashboard');
+        $data_transaksi = \App\Transaksi::all();
+        return view('Transaksi.transaksi', ['data_transaksi' => $data_transaksi]);
     }
 
     /**
@@ -27,11 +22,9 @@ class AdminBarberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        \App\Booking::create($request->all());
-        return redirect('/Booking');
-    
+        //
     }
 
     /**
@@ -87,8 +80,8 @@ class AdminBarberController extends Controller
      */
     public function delete($id)
     {
-        $booking = \App\Booking::find($id);
-        $booking->delete($booking);
-        return redirect('/Booking');
+        $trans = \App\Transaksi::find($id);
+        $trans->delete($trans);
+        return redirect('/Transaksi');
     }
 }

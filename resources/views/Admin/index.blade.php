@@ -55,7 +55,7 @@
               <h4 class="card-title">Menu Booking</h4>
             </div>
               <div class="col-lg-12">
-                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
+                <button type="button" class="btn btn-lg btn-success float-right" data-toggle="modal" data-target="#exampleModal">Tambah Data</button>
             </div>
             </div>
            
@@ -65,12 +65,13 @@
                   <thead class="text-primary">
                     <tr>
                       <th>NAMA</th>
-                      <th>TANGGAL</th>
+                      <th>@sortablelink('tgl')</th>
                       <th>JAM</th>
                       <th>LAYANAN</th>
                       <th>AKSI</th>
                   </tr>
                   </thead>
+                  @if($data_booking->count())
                   @foreach ($data_booking as $booking)
                   <tr>
                       <td>{{$booking->nama}}</td>
@@ -82,8 +83,10 @@
                       </td>
                   </tr>    
                   @endforeach
+                  @endif
                    </tbody>
                 </table>
+                {!! $data_booking->appends(\Request::except('page'))->render() !!}
             </div>
           </div>
         </div>
@@ -125,8 +128,8 @@
                   </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-md btn-success">Tambah</button>
         </form>
         </div>
       </div>
