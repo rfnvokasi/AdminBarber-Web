@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/lar', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('Auths.login');
 });
 
 Route::get('/loginadmin' , 'AuthController@login')->name('login');
